@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:54:43 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/18 01:53:23 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/20 19:24:26 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ char	*check_tet(char *gone)
 		if(!(check_line(gone, j) && check_valide(gone, j)
 			return (0);
 		i = 19;
-		if (stock[i + j] == '\n' && stock[i + j + 1] == '\0')
+		if (gone[i + j] == '\n' && gone[i + j + 1] == '\0')
 			return (1);
-		if (stock[i + j] == '\n' && stock[i + j + 1] == '\n'
-		&& (stock[i + j + 2] == '.' || stock[i + j + 2] == '#'))
+		if (gone[i + j] == '\n' && gone[i + j + 1] == '\n'
+		&& (gone[i + j + 2] == '.' || gone[i + j + 2] == '#'))
 			j += 21;
 		else
 			return (0);
