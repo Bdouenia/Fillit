@@ -24,7 +24,7 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	fd = open(av[1], O_RDONLY);
-	transtet = (get_str(fd)
+	transtet = (get_str(fd))
 	if (!(check_tet(transtet)))
 	{
 		ft_putstr("error\n");

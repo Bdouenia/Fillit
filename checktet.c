@@ -11,7 +11,79 @@
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-
-char	**ft_checkvalide(char *gone)
+int		check_line(char *gone, int j)
 {
+	int count;
+	int i;
+
+	i = 0;
+	count = 0;
+	while (i + j < 20 + j)
+	{
+		if (gone[i + j] == '#')
+		{
+			if (gone[i + j + 1] == '#')
+				count++;
+			if (gone[i + j - 1] == '#')
+				count++;
+			if (gone[i + j + 5] == '#')
+				count++;
+			if (gone[i + j - 5] == '#')
+				count++;
+		}
+		i++;
+	}
+	if (count == 6 || count == 8)
+		return (1);
+	return (0);
+}
+
+int		check_valide(char *gone, int j)
+{
+	int ht;
+	int point;
+	int nl;
+	int i;
+
+	ht = 0;
+	point = 0;
+	nl = 0;
+	i = 0;
+	while (i + j < 20 + j && gone[i + j])
+	{
+		if (gone[i + j] == '.')
+			point++;
+		if (gone[i + j] == '\n')
+			nl++;
+		if (gone[i + j] == '#')
+			ht++;
+		i++;
+	}
+	if (ht == 4 && point == 16 && nl == 4)
+		return (1);
+	return (0);
+}
+
+char	*check_tet(char *gone)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (gone[i + j])
+	{
+		if(!(check_line(gone, j) && check_valide(gone, j)
+			return (0);
+		i = 19;
+		if (stock[i + j] == '\n' && stock[i + j + 1] == '\0')
+			return (1);
+		if (stock[i + j] == '\n' && stock[i + j + 1] == '\n'
+		&& (stock[i + j + 2] == '.' || stock[i + j + 2] == '#'))
+			j += 21;
+		else
+			return (0);
+		i = 0;
+	}
+	retrun (1);
 }
