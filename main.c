@@ -10,13 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 int		main(int ac, char **av)
 {
-	if (ac < 1)
-		return (ft_putstr("usage: fillit source_file");
+	int		fd;
+	char	*transtet
+	t_tet	*tetri
 
-	if (ft_checkvalide(av[1]) == 0)
-		return (ft_pustr("error"));
+	if (ac < 1)
+	{
+		ft_putstr("usage: fillit source_file\n");
+		return (0);
+	}
+	fd = open(av[1], O_RDONLY);
+	transtet = (get_str(fd)
+	if (!(check_tet(transtet)))
+	{
+		ft_putstr("error\n");
+		return (0);
+	}
+	close(fd);
+	tetri = (get_terti(transtet));
+	solve(tetri)
+	free(transtet);
+	free(tetri);
+	return (0);
 }
