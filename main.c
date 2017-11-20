@@ -31,7 +31,7 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	close(fd);
-	tetri = (get_terti(transtet));
+	tetri = (get_tetri(transtet));
 	solve(tetri)
 	free(transtet);
 	free(tetri);
