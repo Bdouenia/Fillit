@@ -1,4 +1,4 @@
-char		*get_str(int fd)
+char	*get_str(int fd)
 {
 	int		f;
 	int		i;

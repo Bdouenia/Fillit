@@ -13,19 +13,16 @@ int			count_tetri(char *str)
 	}
 	return (result / 4);
 }
-void	creat_tetri(t_teri **tmp, char *str)
+void	creat_tetri(t_teri *tmp, char *str)
 {
 	int i;
-	int j;
-
+	char	**tab;
 	i = 0;
-	j = 0;
 	while (str[i])
 	{
-		if (str[i] == '#')i
+		if (str[i] == '#')
 		{
-			Trouver comment placer dans le tableau
-			j++;
+			tmp->tab[i % 5][i / 5];
 		}
 	i++;
 	}
