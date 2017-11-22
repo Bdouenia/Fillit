@@ -6,11 +6,7 @@
 #    By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/22 15:29:41 by dvalenti          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2017/11/22 19:04:48 by bdouenia         ###   ########.fr        #
-=======
 #    Updated: 2017/11/22 19:41:24 by dvalenti         ###   ########.fr        #
->>>>>>> 786d9494810bbe5147b39616e3ea052cf029255e
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,13 +27,9 @@ NAME= fillit
 SRC_FILE=	check_tetri.c \
 			get_str.c \
 			get_tetri.c \
-<<<<<<< HEAD
-			main.c \
-=======
 			main.c 
 
 // SRC_DIR= ./src/
->>>>>>> 786d9494810bbe5147b39616e3ea052cf029255e
 
 SRC= $(addprefix src/,$(SRC_FILE))
 
