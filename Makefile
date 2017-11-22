@@ -6,7 +6,7 @@
 #    By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/22 15:29:41 by dvalenti          #+#    #+#              #
-#    Updated: 2017/11/22 20:15:47 by bdouenia         ###   ########.fr        #
+#    Updated: 2017/11/22 20:44:08 by dvalenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,17 +42,17 @@ all: 		$(NAME)
 
 $(NAME):	$(OBJ)
 			@make -C ./libft
-			@$(CC) $(CFLAGS) $(CHEADER) $(OBJ) $(LIBA) -o $(NAME)
+			$(CC) $(CFLAGS) $(CHEADER) $(OBJ) $(LIBA) -o $(NAME)
 
 %.o: %.c
-			@$(CC) $(CFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			@rm -f $(OBJ)
+			rm -f $(OBJ)
 			@make -C ./libft clean
 
 fclean: 	clean
-			@rm -f $(NAME)
+			rm -f $(NAME)
 			@make -C ./libft fclean
 
 re: fclean all
