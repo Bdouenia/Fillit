@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:28:37 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 18:46:11 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 19:33:24 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ int		main(int ac, char **av)
 		ft_putstr("error\n");
 		return (0);
 	}
+	printf("no error\n");
 	close(fd);
+	printf("after close\n");
 	tetri = get_tetri(transtet);
+	printf("after get\n");
 	free(transtet);
 //	solve(tetri)
 	free(tetri);

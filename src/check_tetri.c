@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:54:43 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 18:59:21 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 19:31:17 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,20 @@ int		check_tetri(char *gone)
 		printf("ok after check\n");
 		i = 19;
 		if (gone[i + j] == '\n' && gone[i + j + 1] == '\0')
+		{
+		printf("1check\n");
 			return (1);
+		}
 		if (gone[i + j] == '\n' && gone[i + j + 1] == '\n'
 		&& (gone[i + j + 2] == '.' || gone[i + j + 2] == '#'))
+		{
+		printf("2check\n");
 			j += 21;
+		}
 		else
 			return (0);
 		i = 0;
+		printf("fin check\n");
 	}
 	return (1);
 }
