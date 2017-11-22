@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_str.c                                          :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 17:51:14 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/20 17:51:55 by bdouenia         ###   ########.fr       */
+/*   Created: 2017/11/22 16:21:15 by bdouenia          #+#    #+#             */
+/*   Updated: 2017/11/22 16:34:08 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FILLIT_H
+# define FILLIT_H
+
 #include "libft.h"
 
-char	*get_str(int fd)
+typedef struct		s_tetri
 {
-	int		f;
-	int		i;
-	char	c;
-	char	*str;
+	char			c;
+	int				x[4];
+	int				y[4];
+	struct s_tetri	*next;
+}					t_tetri;
 
-	i = 0;
-	str = NULL;
-	f = read(fd, &c, 1);
-	if (f < 0)
-		return (NULL);
-	if (f == 1)
-	{
-		str = (char *)malloc(sizeof(char) * 600);
-		while (f != '\0')
-		{
-			str[i] = c;
-			i++;
-			f = read(fd, &c, 1);
-		}
-		str[i] = '\0';
-	}
-	return (str);
-}
+int					count_tetri(char *str);
+void				creat_tetri(t_tetri **tmp, char *str);
+t_tetri				get_tetri(chat *str);
+char				*get_str(int fd);
+int					check_line(char *gone, int j);
+int					check_valide(char *gone, int j);
+char				*check_tetri(char *gone);
+
+#endif

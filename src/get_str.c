@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   get_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/17 23:28:37 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/20 18:26:21 by bdouenia         ###   ########.fr       */
+/*   Created: 2017/11/20 17:51:14 by bdouenia          #+#    #+#             */
+/*   Updated: 2017/11/22 16:30:44 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+char	*get_str(int fd)
 {
-	int		fd;
-	char	*transtet
-	t_tet	*tetri
+	int		f;
+	int		i;
+	char	c;
+	char	*str;
 
-	if (ac < 1)
+	i = 0;
+	str = NULL;
+	f = read(fd, &c, 1);
+	if (f < 0)
+		return (NULL);
+	if (f == 1)
 	{
-		ft_putstr("usage: fillit source_file\n");
-		return (0);
+		str = (char *)malloc(sizeof(char) * 600);
+		while (f != '\0')
+		{
+			str[i] = c;
+			i++;
+			f = read(fd, &c, 1);
+		}
+		str[i] = '\0';
 	}
-	fd = open(av[1], O_RDONLY);
-	transtet = (get_str(fd))
-	if (!(check_tet(transtet)))
-	{
-		ft_putstr("error\n");
-		return (0);
-	}
-	close(fd);
-	tetri = (get_tetri(transtet));
-	free(transtet);
-	solve(tetri)
-	free(tetri);
-	return (0);
+	return (str);
 }

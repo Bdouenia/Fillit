@@ -6,11 +6,12 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:50:40 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/20 18:49:48 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 16:29:41 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "fillit.h"
 
 int			count_tetri(char *str)
 {
@@ -19,7 +20,7 @@ int			count_tetri(char *str)
 
 	result = 0;
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] == '#')
 			result++;
@@ -27,17 +28,19 @@ int			count_tetri(char *str)
 	}
 	return (result / 4);
 }
-void	creat_tetri(t_teri *tmp, char *str)
+void	creat_tetri(t_tetri **tmp, char *str)
 {
 	int i;
-	char	**tab;
+	int j;
 
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] == '#')
 		{
-			tmp->tab[i % 5][i / 5];
+			tmp->x[j] = [i % 5];
+			tmp->y[j] = [i / 5];
+			j++;
 		}
 	i++;
 	}
@@ -54,7 +57,7 @@ t_tetri		get_tetri(char *str)
 		return (NULL);
 	while (nb_tetri > 0)
 	{
-		creat_tetri(tmp, strsub(str, 0 + add21, 20)
+		creat_tetri(tmp, ft_strsub(str, 0 + add21, 20)
 		if (!(tmp->next = (t_tetri)malloc(sizeof(t_tetri))))
 			return (NULL);
 		tmp = tmp->next;

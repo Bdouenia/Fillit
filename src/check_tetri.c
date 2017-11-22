@@ -6,11 +6,13 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:54:43 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/20 19:24:26 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 16:33:13 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "fillit.h"
+
 int		check_line(char *gone, int j)
 {
 	int count;
@@ -64,7 +66,7 @@ int		check_valide(char *gone, int j)
 	return (0);
 }
 
-char	*check_tet(char *gone)
+char	*check_tetri(char *gone)
 {
 	int i;
 	int j;
