@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_str.c                                          :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 17:51:14 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 17:41:07 by dvalenti         ###   ########.fr       */
+/*   Created: 2017/11/09 02:45:10 by bdouenia          #+#    #+#             */
+/*   Updated: 2017/11/22 18:21:23 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*get_str(int fd)
+void	ft_putstr(char const *s)
 {
-	int		f;
-	int		i;
-	char	c;
-	char	*str;
+	int i;
 
 	i = 0;
-	str = NULL;
-	f = read(fd, &c, 1);
-	if (f != 1)
-		return (NULL);
-	str = (char *)malloc(sizeof(char) * 600);
-	while (f != '\0')
+	while (s[i])
 	{
-		str[i] = c;
+		ft_putchar(s[i]);
 		i++;
-		f = read(fd, &c, 1);
 	}
-	str[i] = '\0';
-	return (str);
 }

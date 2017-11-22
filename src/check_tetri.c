@@ -6,12 +6,12 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:54:43 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 16:33:13 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 18:09:01 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "fillit.h"
+#include "../includes/libft.h"
+#include "../includes/fillit.h"
 
 int		check_line(char *gone, int j)
 {
@@ -66,7 +66,7 @@ int		check_valide(char *gone, int j)
 	return (0);
 }
 
-char	*check_tetri(char *gone)
+int		check_tetri(char *gone)
 {
 	int i;
 	int j;
@@ -75,7 +75,7 @@ char	*check_tetri(char *gone)
 	j = 0;
 	while (gone[i + j])
 	{
-		if(!(check_line(gone, j) && check_valide(gone, j)
+		if(!(check_line(gone, j) && check_valide(gone, j)))
 			return (0);
 		i = 19;
 		if (gone[i + j] == '\n' && gone[i + j + 1] == '\0')
@@ -87,5 +87,5 @@ char	*check_tetri(char *gone)
 			return (0);
 		i = 0;
 	}
-	retrun (1);
+	return (1);
 }

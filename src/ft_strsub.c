@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_str.c                                          :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 17:51:14 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 17:41:07 by dvalenti         ###   ########.fr       */
+/*   Created: 2017/11/11 00:24:52 by bdouenia          #+#    #+#             */
+/*   Updated: 2017/11/22 18:21:43 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*get_str(int fd)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int		f;
-	int		i;
-	char	c;
-	char	*str;
+	char				*str;
+	unsigned int		i;
 
 	i = 0;
-	str = NULL;
-	f = read(fd, &c, 1);
-	if (f != 1)
+	if (s == NULL)
 		return (NULL);
-	str = (char *)malloc(sizeof(char) * 600);
-	while (f != '\0')
+	if (start > ft_strlen(s))
+		return (NULL);
+	else if (!(str = (char*)malloc(sizeof(*str) * (len + 1))))
+		return (0);
+	while (i < len)
 	{
-		str[i] = c;
+		str[i] = s[start];
 		i++;
-		f = read(fd, &c, 1);
+		start++;
 	}
 	str[i] = '\0';
 	return (str);

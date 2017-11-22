@@ -6,18 +6,19 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:28:37 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 17:30:04 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/22 18:19:10 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "fillit.h"
+#include "../includes/libft.h"
+#include "../includes/fillit.h"
+#include <fcntl.h>
 
 int		main(int ac, char **av)
 {
 	int		fd;
-	char	*transtet
-	t_tet	*tetri
+	char	*transtet;
+	t_tetri	*tetri;
 
 	if (ac < 1)
 	{
@@ -25,16 +26,16 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	fd = open(av[1], O_RDONLY);
-	transtet = (get_str(fd))
+	transtet = (get_str(fd));
 	if (!(check_tetri(transtet)))
 	{
 		ft_putstr("error\n");
 		return (0);
 	}
 	close(fd);
-	tetri = (get_tetri(transtet));
+	tetri = get_tetri(transtet);
 	free(transtet);
-	solve(tetri)
+//	solve(tetri)
 	free(tetri);
 	return (0);
 }
