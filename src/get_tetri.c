@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:50:40 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 17:25:48 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 17:29:10 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 
 int			count_tetri(char *str)
 {
-	int		i;
 	int		result;
 
 	result = 0;
-	i = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '#')
+		if (*str == '#')
 			result++;
-		i++;
+		str++;
 	}
 	return (result / 4);
 }
@@ -49,15 +47,15 @@ void	creat_tetri(t_tetri **tmp, char *str)
 t_tetri		get_tetri(char *str)
 {
 	int			nb_tetri;
-	t_tetri		*first;
+	t_tetri		*locomotive;
 	t_tetri		*tmp;
 
 	nb_tetri = count_tetri(str);
-	if (!(first = (t_tetri *)malloc(sizeof(t_tetri))))
+	if (!(locomotive = (t_tetri *)malloc(sizeof(t_tetri))))
 		return (NULL);
 	while (nb_tetri > 0)
 	{
-		creat_tetri(tmp, ft_strsub(str, 0 + add21, 20)
+		creat_tetri(tmp, ft_strsub(str, add21, 20)
 		if (!(tmp->next = (t_tetri)malloc(sizeof(t_tetri))))
 			return (NULL);
 		tmp = tmp->next;
@@ -65,5 +63,5 @@ t_tetri		get_tetri(char *str)
 		add21 += 21;
 	}
 	tmp->next = NULL;
-	return (first);
+	return (locomotive);
 }

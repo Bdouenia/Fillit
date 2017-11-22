@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:51:14 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 16:30:44 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 17:29:43 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,15 @@ char	*get_str(int fd)
 	i = 0;
 	str = NULL;
 	f = read(fd, &c, 1);
-	if (f < 0)
+	if (f != 1)
 		return (NULL);
-	if (f == 1)
+	str = (char *)malloc(sizeof(char) * 600);
+	while (f != '\0')
 	{
-		str = (char *)malloc(sizeof(char) * 600);
-		while (f != '\0')
-		{
-			str[i] = c;
-			i++;
-			f = read(fd, &c, 1);
-		}
-		str[i] = '\0';
+		str[i] = c;
+		i++;
+		f = read(fd, &c, 1);
 	}
+	str[i] = '\0';
 	return (str);
 }
