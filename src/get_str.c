@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   get_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/17 23:28:37 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/17 23:58:18 by bdouenia         ###   ########.fr       */
+/*   Created: 2017/11/20 17:51:14 by bdouenia          #+#    #+#             */
+/*   Updated: 2017/11/22 17:41:07 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "../includes/libft.h"
 
-int		main(int ac, char **av)
+char	*get_str(int fd)
 {
-	if (ac < 1)
-		return (ft_putstr("usage: fillit source_file");
+	int		f;
+	int		i;
+	char	c;
+	char	*str;
 
-	if (ft_checkvalide(av[1]) == 0)
-		return (ft_pustr("error"));
+	i = 0;
+	str = NULL;
+	f = read(fd, &c, 1);
+	if (f != 1)
+		return (NULL);
+	str = (char *)malloc(sizeof(char) * 600);
+	while (f != '\0')
+	{
+		str[i] = c;
+		i++;
+		f = read(fd, &c, 1);
+	}
+	str[i] = '\0';
+	return (str);
 }
