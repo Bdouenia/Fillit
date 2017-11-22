@@ -6,7 +6,7 @@
 #    By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/22 15:29:41 by dvalenti          #+#    #+#              #
-#    Updated: 2017/11/22 19:41:24 by dvalenti         ###   ########.fr        #
+#    Updated: 2017/11/22 20:15:47 by bdouenia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,18 +41,18 @@ OBJ = $(SRC:.c=.o)
 all: 		$(NAME)
 
 $(NAME):	$(OBJ)
-			make -C ./libft
-			$(CC) $(CFLAGS) $(CHEADER) $(OBJ) $(LIBA) -o $(NAME)
+			@make -C ./libft
+			@$(CC) $(CFLAGS) $(CHEADER) $(OBJ) $(LIBA) -o $(NAME)
 
 %.o: %.c
-			$(CC) $(CFLAGS) -c $< -o $@
+			@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			rm -f $(OBJ)
-			make -C ./libft clean
+			@rm -f $(OBJ)
+			@make -C ./libft clean
 
 fclean: 	clean
-			rm -f $(NAME)
-			make -C ./libft fclean
+			@rm -f $(NAME)
+			@make -C ./libft fclean
 
 re: fclean all
