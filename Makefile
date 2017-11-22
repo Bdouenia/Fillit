@@ -6,7 +6,7 @@
 #    By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/22 15:29:41 by dvalenti          #+#    #+#              #
-#    Updated: 2017/11/17 23:57:19 by dvalenti         ###   ########.fr        #
+#    Updated: 2017/11/22 18:59:45 by dvalenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@
 
 CC= gcc
 
-HEADER= libft/libft.h
+HEADER= includes/libft.h\
+		includes/fillit.h
 
-LIBA= libft/libft.a
+LIBA`= -L./libft/ -lft
 
 CFLAGS= -Wall -Wextra -Werror
 
@@ -24,19 +25,34 @@ CHEADER= -I $(HEADER)
 
 NAME= fillit
 
-SRC_FILE= fillit.c\
+SRC_FILE=	check_tetri.c \
+			get_str.c \
+			get_tetri.c \
+			main.c \
+SRC_DIR= ./src/
 
-OBJ= $(SRC_FILE:.c=.o)
+SRC= $(addprefix src/,$(SRC_FILE))
 
-all: $(NAME)
+OBJ = $(SRC:.c=.o)
 
-$(NAME): $(OBJ)
-		
+
+#	RULES
+
+all: 		$(NAME)
+
+$(NAME):	$(OBJ)
+			make -C ./libft
+			$(CC) $(CFLAGS) $ $(CHEADER) -c ./src/$(OBJ) $(LIBA) -o $(NAME)
+
 %.o: %.c
-	$(CC) $(CFLAGS) $(CHEADER) $< $(LIBA)
+			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
-fclean: clean
-	rm -f $(NAME)
+			rm -f $(OBJ)
+			make -C ./libft clean
+
+fclean: 	clean
+			rm -f $(NAME)
+			make -C ./libft fclean
+
 re: fclean all
