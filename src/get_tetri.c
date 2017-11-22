@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:50:40 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 20:13:01 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 20:33:00 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,15 @@ void	creat_tetri(t_tetri **tmp, char *str)
 	j = 0;
 	while (str[i])
 	{
+		printf("%d\n", i);
 		if (str[i] == '#')
 		{
-			(*tmp)->x[j] = (i % 5);
-			(*tmp)->y[j] = (i / 5);
+			printf("%d\n", j);
+			(*tmp)->x[j] = i % 5;
+			(*tmp)->y[j] = i / 5;
 			j++;
 		}
-	i++;
+		i++;
 	}
 }
 
