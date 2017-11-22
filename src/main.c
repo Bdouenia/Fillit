@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:28:37 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 18:33:12 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 18:46:11 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,13 @@ int		main(int ac, char **av)
 	char	*transtet;
 	t_tetri	*tetri;
 
-	if (ac < 1)
+	if (ac != 2)
 	{
 		ft_putstr("usage: fillit source_file\n");
 		return (0);
 	}
 	fd = open(av[1], O_RDONLY);
 	transtet = (get_str(fd));
-	printf("%s\n", transtet);
 	if (!(check_tetri(transtet)))
 	{
 		ft_putstr("error\n");
