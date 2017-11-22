@@ -6,21 +6,24 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:28:37 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 18:19:10 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 22:09:23 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 #include "../includes/fillit.h"
 #include <fcntl.h>
+#include <stdio.h>
 
 int		main(int ac, char **av)
 {
 	int		fd;
 	char	*transtet;
 	t_tetri	*tetri;
+	int		a;
 
-	if (ac < 1)
+	a = 0;
+	if (ac != 2)
 	{
 		ft_putstr("usage: fillit source_file\n");
 		return (0);
@@ -34,6 +37,14 @@ int		main(int ac, char **av)
 	}
 	close(fd);
 	tetri = get_tetri(transtet);
+		while (a < 4)
+		{
+			printf("%d %d\n", tetri->x[a], tetri->y[a]);
+			a++;
+		}
+		printf("\n");
+		tetri = tetri->next;
+	printf("after get\n");
 	free(transtet);
 //	solve(tetri)
 	free(tetri);
