@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:28:37 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 22:06:07 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/22 23:46:55 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		main(int ac, char **av)
 		tetri = tetri->next;
 	}
 	free(transtet);
-//	solve(tetri)
+	solve(tetri);
 	free(tetri);
 	return (0);
 }
