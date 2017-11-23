@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:50:40 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 21:03:00 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 21:00:24 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	creat_tetri(t_tetri **tmp, char *str)
 	j = 0;
 	while (str[i])
 	{
+		printf("%d\n", i);
 		if (str[i] == '#')
 		{
 			printf("%d\n", j);
