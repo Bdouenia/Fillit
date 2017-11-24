@@ -6,7 +6,7 @@
 #    By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/22 15:29:41 by dvalenti          #+#    #+#              #
-#    Updated: 2017/11/17 23:36:49 by dvalenti         ###   ########.fr        #
+#    Updated: 2017/11/24 05:49:26 by dvalenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC_FILE=	ft_atoi.c\
 			ft_lstiter.c\
 			ft_lstnew.c\
 			ft_lstmap.c\
+			ft_max.c\
 			ft_memccpy.c\
 			ft_memchr.c\
 			ft_memcmp.c\
@@ -91,14 +92,14 @@ OBJ= $(SRC_FILE:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $(CHEADER) $< -o $@
+	@$(CC) -c $(CFLAGS) $(CHEADER) $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 re: fclean all

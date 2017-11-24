@@ -6,12 +6,13 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:50:40 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 19:01:27 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/24 05:44:36 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 #include "../includes/fillit.h"
+#include <stdio.h>
 
 int			count_tetri(char *str)
 {
@@ -37,11 +38,11 @@ void	creat_tetri(t_tetri **tmp, char *str)
 	{
 		if (str[i] == '#')
 		{
-			(*tmp)->x[j] = (i % 5);
-			(*tmp)->y[j] = (i / 5);
+			(*tmp)->x[j] = i % 5;
+			(*tmp)->y[j] = i / 5;
 			j++;
 		}
-	i++;
+		i++;
 	}
 }
 
@@ -51,20 +52,23 @@ t_tetri		*get_tetri(char *str)
 	t_tetri		*locomotive;
 	t_tetri		*tmp;
 	int			add21;
+	char		c;
 
+	c = 'a';
 	add21 = 0;
 	nb_tetri = count_tetri(str);
 	if (!(locomotive = (t_tetri *)malloc(sizeof(t_tetri))))
-		return *(&locomotive);
-	while (nb_tetri > 0)
+		return (locomotive);
+	tmp = locomotive;
+	while (tmp->next)
 	{
+		tmp->nb_tetri = nb_tetri;
 		creat_tetri(&tmp, ft_strsub(str, add21, 20));
 		if (!(tmp->next = (t_tetri *)malloc(sizeof(t_tetri))))
-			return *(&tmp);
+			return (tmp);
 		tmp = tmp->next;
-		nb_tetri--;
 		add21 += 21;
 	}
 	tmp->next = NULL;
-	return *(&locomotive);
+	return (locomotive);
 }

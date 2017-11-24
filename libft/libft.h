@@ -6,7 +6,7 @@
 /*   By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 06:44:27 by dvalenti          #+#    #+#             */
-/*   Updated: 2017/11/16 16:01:36 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/24 05:48:57 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ t_list					*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list					*ft_lstnew(void const *content, size_t content_size);
 
 void					ft_lstiter(t_list *lst, void (*f) (t_list *elem));
+
+int						ft_max(int *un);
 
 void					*ft_memalloc(size_t size);
 

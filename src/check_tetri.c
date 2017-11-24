@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:54:43 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 18:59:21 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/11/22 21:28:21 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,7 @@ int		check_line(char *gone, int j)
 		i++;
 	}
 	if (count == 6 || count == 8)
-	{
-		printf("ok1\n");
 		return (1);
-	}
-	printf("nope1\n");
 	return (0);
 }
 
@@ -66,15 +62,8 @@ int		check_valide(char *gone, int j)
 			ht++;
 		i++;
 	}
-	printf("point: %d\n", point);
-	printf("ht: %d\n", ht);
-	printf("nl: %d\n", nl);
 	if (ht == 4 && point == 12 && nl == 4)
-	{
-		printf("ok2\n");
 		return (1);
-	}
-	printf("nope2\n");
 	return (0);
 }
 
@@ -89,12 +78,11 @@ int		check_tetri(char *gone)
 	{
 		if(!(check_line(gone, j) && check_valide(gone, j)))
 			return (0);
-		printf("ok after check\n");
 		i = 19;
 		if (gone[i + j] == '\n' && gone[i + j + 1] == '\0')
 			return (1);
 		if (gone[i + j] == '\n' && gone[i + j + 1] == '\n'
-		&& (gone[i + j + 2] == '.' || gone[i + j + 2] == '#'))
+				&& (gone[i + j + 2] == '.' || gone[i + j + 2] == '#'))
 			j += 21;
 		else
 			return (0);
