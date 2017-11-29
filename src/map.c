@@ -6,12 +6,12 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 23:59:02 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/23 17:57:33 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/29 02:31:41 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
-#include "../includes/libft.h"
+#include <stdio.h>
 
 char	**creat_map(char **map, size_t size)
 {
@@ -28,11 +28,13 @@ char	**creat_map(char **map, size_t size)
 			return (NULL);
 		while (x < size)
 		{
-			map[x][y] = '.';
+			map[y][x] = '.';
 			x++;
 		}
-		map[x][y] = '\0';
+		map[y][x] = '\0';
+		printf("%s\n", map[y]);
 		y++;
+		x = 0;
 	}
 	return (map);
 }
@@ -49,3 +51,4 @@ void	print_map(char **map)
 		i++;
 	}
 }
+

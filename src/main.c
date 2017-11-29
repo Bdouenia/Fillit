@@ -6,11 +6,10 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:28:37 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/24 04:18:09 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/29 03:55:53 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
 #include "../includes/fillit.h"
 #include <fcntl.h>
 #include <stdio.h>
@@ -19,6 +18,7 @@ int		main(int ac, char **av)
 {
 	int		fd;
 	char	*transtet;
+	t_tetri *locomotive;
 	t_tetri	*tetri;
 	int		a = 0;
 
@@ -29,6 +29,7 @@ int		main(int ac, char **av)
 	}
 	fd = open(av[1], O_RDONLY);
 	transtet = (get_str(fd));
+	printf("\033[35m=======MOTIFS=======\n\033[0m");
 	printf("%s\n", transtet);
 	if (!(check_tetri(transtet)))
 	{
@@ -36,7 +37,11 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	close(fd);
+	printf("\033[35m=======ENTREE GET_TETRI=======\n\033[0m");
 	tetri = get_tetri(transtet);
+	locomotive = tetri;
+	printf("\n\033[35m=======COORDONEES MAILLONS=======\n\033[0m");
+	printf("%s %d\n", "nb_tetri =", tetri->nb_tetri);
 	while (tetri->next)
 	{
 		a = 0;
@@ -48,10 +53,10 @@ int		main(int ac, char **av)
 		printf("\n");
 		tetri = tetri->next;
 	}
+	tetri = locomotive;
 	a = 0;
 	free(transtet);
-	printf("NOOON0\n");
-//	ft_solve(tetri);
+	ft_solve(tetri);
 	printf("NOOON\n");
 	free(tetri);
 	return (0);

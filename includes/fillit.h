@@ -6,14 +6,14 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 16:21:15 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/24 04:53:03 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/29 03:46:10 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-#include "libft.h"
+#include "../libft/libft.h"
 
 typedef struct		s_tetri
 {
@@ -23,7 +23,7 @@ typedef struct		s_tetri
 	struct s_tetri	*next;
 }					t_tetri;
 
-char				**algo(char **map, t_tetri *tetri, size_t size);
+int					ft_algo(char ***map, t_tetri *tetri, size_t size);
 int					count_tetri(char *str);
 void				creat_tetri(t_tetri **tmp, char *str);
 t_tetri				*get_tetri(char *str);

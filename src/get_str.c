@@ -6,11 +6,11 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:51:14 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 17:41:07 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/28 20:59:03 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/fillit.h"
 
 char	*get_str(int fd)
 {

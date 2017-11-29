@@ -6,42 +6,41 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 23:47:32 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/24 05:59:03 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/29 03:17:16 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
-#include "../includes/libft.h"
 #include <stdio.h>
 
-int		calc_size(int	nb)
+size_t		calc_size(int	nb)
 {
-	int 	i;
+	int	i;
 
 	i = 1;
 	while (i * i < nb)
 		i++;
-	return (i);
+	return ((unsigned long int)i);
 }
 
-void	solve(t_tetri *tetri)
+void	ft_solve(t_tetri *tetri)
 {
 	char	**map;
 	size_t	size;
-	char	**epilogue;
-
 	
 	map = NULL;
-	printf("OUIIII0");
+	printf("\n\033[35m=======ENTREE_DE_FT_SOLVE=======\n\033[0m");
+	printf("%s %d\n", "nombre de tetri =", tetri->nb_tetri);
 	size = calc_size((tetri->nb_tetri) * 4);
+	printf("%s %zu\n", "size =", size);
+	printf("\n\033[35m=======ENTREE_DE_CREAT_MAP======\n\033[0m");
 	map = creat_map(map, size);
-	epilogue = NULL;
-	printf("OUIIII1");
-	while (!(epilogue = ft_algo(map, tetri, size)))
+	printf("\n\033[35m=======ENTRE_BACKTRCKING=======\n\033[0m");
+	while (!(ft_algo(&map, tetri, size)))
 	{
 		size++;
 		ft_memdel((void **)map);
 		map = creat_map(map, size);
 	}
-	print_map(epilogue);
+	print_map(map);
 }

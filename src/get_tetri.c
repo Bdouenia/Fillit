@@ -6,11 +6,10 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:50:40 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/24 05:44:36 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/29 03:54:23 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
 #include "../includes/fillit.h"
 #include <stdio.h>
 
@@ -52,23 +51,26 @@ t_tetri		*get_tetri(char *str)
 	t_tetri		*locomotive;
 	t_tetri		*tmp;
 	int			add21;
-	char		c;
+	int			c;
 
-	c = 'a';
 	add21 = 0;
 	nb_tetri = count_tetri(str);
+	c = nb_tetri;
 	if (!(locomotive = (t_tetri *)malloc(sizeof(t_tetri))))
 		return (locomotive);
 	tmp = locomotive;
-	while (tmp->next)
+	while (c > 0)
 	{
 		tmp->nb_tetri = nb_tetri;
-		creat_tetri(&tmp, ft_strsub(str, add21, 20));
+		printf("%s %d | %d\n", "nombre de tetri =", nb_tetri, tmp->nb_tetri);
+		creat_tetri(&tmp, ft_strsub(str, 0 + add21, 20));
 		if (!(tmp->next = (t_tetri *)malloc(sizeof(t_tetri))))
 			return (tmp);
 		tmp = tmp->next;
 		add21 += 21;
+		c--;
 	}
 	tmp->next = NULL;
+	printf("%s %d\n", "nb_tetri(sortie) =", locomotive->nb_tetri);
 	return (locomotive);
 }
