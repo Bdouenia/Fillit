@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 23:47:32 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/29 03:17:16 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/29 07:42:46 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ void	ft_solve(t_tetri *tetri)
 {
 	char	**map;
 	size_t	size;
-	
+	int 	j;
+
+	j = 0;	
 	map = NULL;
 	printf("\n\033[35m=======ENTREE_DE_FT_SOLVE=======\n\033[0m");
 	printf("%s %d\n", "nombre de tetri =", tetri->nb_tetri);
@@ -36,7 +38,12 @@ void	ft_solve(t_tetri *tetri)
 	printf("\n\033[35m=======ENTREE_DE_CREAT_MAP======\n\033[0m");
 	map = creat_map(map, size);
 	printf("\n\033[35m=======ENTRE_BACKTRCKING=======\n\033[0m");
-	while (!(ft_algo(&map, tetri, size)))
+	while (j < 4)
+	{
+		printf("%s\n", map[j]);
+		j++;
+	}
+	while (!(ft_algo(map, tetri, size)))
 	{
 		size++;
 		ft_memdel((void **)map);

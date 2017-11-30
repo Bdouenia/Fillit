@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 16:21:15 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/29 03:46:10 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/29 04:57:02 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct		s_tetri
 	struct s_tetri	*next;
 }					t_tetri;
 
-int					ft_algo(char ***map, t_tetri *tetri, size_t size);
+int					ft_algo(char **map, t_tetri *tetri, size_t size);
 int					count_tetri(char *str);
 void				creat_tetri(t_tetri **tmp, char *str);
 t_tetri				*get_tetri(char *str);
