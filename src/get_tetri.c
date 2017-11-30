@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_tetri.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:50:40 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/29 04:54:10 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/30 06:52:50 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,40 @@ void	creat_tetri(t_tetri **tmp, char *str)
 		i++;
 	}
 }
+void	topleft(t_tetri **tmp)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 10;
+	while(i < 4)
+	{
+		if ((*tmp)->x[i] < j)
+			j = (*tmp)->x[i];
+		i++;
+	}
+	i = 0;
+	while(i < 4)
+	{
+		(*tmp)->x[i] -= j;
+		i++;
+	}
+	j = 10;
+	i = 0;
+	while(i < 4)
+	{
+		if ((*tmp)->y[i] < j)
+			j = (*tmp)->y[i];
+		i++;
+	}
+	i = 0;
+	while(i < 4)
+	{
+		(*tmp)->y[i] -= j;
+		i++;
+	}
+}
 
 t_tetri		*get_tetri(char *str)
 {
@@ -64,6 +98,7 @@ t_tetri		*get_tetri(char *str)
 		tmp->nb_tetri = nb_tetri;
 		printf("%s %d | %d\n", "nombre de tetri =", nb_tetri, tmp->nb_tetri);
 		creat_tetri(&tmp, ft_strsub(str, 0 + add21, 20));
+		topleft(&tmp);
 		if (!(tmp->next = (t_tetri *)malloc(sizeof(t_tetri))))
 			return (tmp);
 		tmp = tmp->next;
