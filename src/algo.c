@@ -6,7 +6,7 @@
 /*   By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 01:12:48 by dvalenti          #+#    #+#             */
-/*   Updated: 2017/11/30 05:47:12 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/11/30 09:22:37 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,20 @@ char	**ft_convert_letter(char **map, t_tetri *tetri, int count, int i, int j)
 
 int		ft_intlen(int	*un)
 {
-	int		i;
+	unsigned long int		i;
+	int						len;
 
 	i = 0;
+	len = 0;
 	printf("\033[36m   +++++ENTREE_CONDITION+++++\n\033[0m");
-	while (*un != 0 && i < 4)
+	while (i <= 4)
+	{
+		if (un[i] != un[i - 1])
+			len++;
 		i++;
-	printf("\033[36m           %s %d\n\033[0m", "i =", i);
-	return (i);
+	}
+	printf("\033[36m           %s %d\n\033[0m", "len =", len);
+	return (len);
 }
 
 int		ft_space_remain(char **map, int j, size_t size)
@@ -72,10 +78,11 @@ int		ft_algo(char **map, t_tetri *tetri, size_t size)
 	int		i;
 	int		j;
 	int		count;
-
+	int 	a;
 	count = 0;
 	i = 0;
 	j = 0;
+	a = tetri->nb_tetri;
 	printf("\n\033[33m~~~~~~~ENTREE_DU_WHILE~~~~~~~\n\033[0m");
 	while (j < (int)size)
 	{
@@ -85,12 +92,13 @@ int		ft_algo(char **map, t_tetri *tetri, size_t size)
 			i++;
 		}
 		ft_putchar('\n');
+		i = 0;
 		j++;
 	}
 	i = 0;
 	j = 0;
 	printf("%s %lu\n", "size =", size);
-	while (tetri->next && ft_intlen(tetri->y) <= ft_space_remain(map, j, size))
+	while (tetri && ft_intlen(tetri->y) <= ft_space_remain(map, j, size) && a)
 	{
 		i = 0;
 		printf("%s %d | %s %d | %s %d\n","count =", count,"i =", i, "j =", j);
@@ -99,17 +107,19 @@ int		ft_algo(char **map, t_tetri *tetri, size_t size)
 			printf("%s %d | %s %d | %s %d\n","count =", count,"i =", i, "j =", j);
 			map = ft_convert_letter(map, tetri, count, i, j);
 			tetri = tetri->next;
-			i = i + tetri->x[ft_max(tetri->x)];
+			while (map[j][i] != '.' && map[j][i] != '\0')
+				i++;
+			printf("%s %d\n", "i(dansboucle)=", i);
 			count++;
 		}
+		i = 0;
+		printf("- - - -entre deux- - - -\n");
+		j++;
 		while (map[j][i] != '.' || map[j][i] == '\0')
-		{	
-			if (map[j][i] == '\0')
-				j += 1;
 			i++;
-		}
+		a--;
 	}
 	if (count == tetri->nb_tetri)
 		return (1);
-	return (0);
+	return (1);
 }
