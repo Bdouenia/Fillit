@@ -3,31 +3,85 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 23:47:32 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/23 02:24:01 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/12/06 16:11:15 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
-#include "../includes/libft.h"
+#include <stdio.h>
 
-void	solve(t_tetri *tetri)
+void	mv_tetri(t_tetri **tetri, int x, int y)
+{
+	int new_x;
+	int new_y;
+	int i;
+
+	i = 0;
+	new_x = 1000;
+	new_y = 1000;
+	while (i < 4)
+	{
+		if ((*tetri)->x[i] < new_x)
+			new_x = (*tetri)->x[i];
+		if ((*tetri)->y[i] < new_y)
+			new_y = (*tetri)->y[i];
+		i++;
+	}
+	i--;
+	while (i >= 0)
+	{
+		(*tetri)->x[i] = (*tetri)->x[i] - new_x + x;
+		(*tetri)->y[i] = (*tetri)->y[i] - new_y + y;
+		i--;
+	}
+}
+
+char	**algo(char **map, t_tetri *tetri, int size)
+{
+	int		x;
+	int		y;
+	char	**pam;
+
+	if (tetri->next == NULL)
+		return (map);
+	pam = NULL;
+	y = 0;
+	while (y < size)
+	{
+		x = 0;
+		while (x < size)
+		{
+			mv_tetri(&tetri, x, y);
+			if (check_tetri_map(map, tetri, size))
+				pam = algo(add_tetri(map, tetri, size), tetri->next, size);
+			if (pam)
+				return (pam);
+			map = rm_tetri(map, tetri, size);
+			x++;
+		}
+		y++;
+	}
+	return (NULL);
+}
+
+void	ft_solve(t_tetri *tetri)
 {
 	char	**map;
-	size_t	size;
-	char	*epilogue;
+	char	**result;
+	int		size;
 
 	size = 2;
 	map = NULL;
 	map = creat_map(map, size);
-	epilogue = NULL;
-	while (!(epilogue = algo(map, tetri, size)))
+	result = NULL;
+	while (!(result = algo(map, tetri, size)))
 	{
 		size++;
 		ft_memdel((void **)map);
-		map = tetri_map_new(map, size);
+		map = creat_map(map, size);
 	}
-	print_map(epilogue);
+	print_map(result, size);
 }

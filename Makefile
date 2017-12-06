@@ -6,7 +6,7 @@
 #    By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/22 15:29:41 by dvalenti          #+#    #+#              #
-#    Updated: 2017/11/22 20:44:08 by dvalenti         ###   ########.fr        #
+#    Updated: 2017/12/06 15:48:32 by dvalenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,10 @@ CHEADER= -I $(HEADER)
 NAME= fillit
 
 SRC_FILE=	check_tetri.c \
-			get_str.c \
 			get_tetri.c \
-			main.c 
-
-// SRC_DIR= ./src/
+			main.c \
+			map.c \
+			solve.c \
 
 SRC= $(addprefix src/,$(SRC_FILE))
 
