@@ -6,17 +6,17 @@
 /*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:54:43 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/12/06 14:12:09 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/12/06 15:56:02 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 #include <stdio.h>
 
-int		check_line(char *gone, int j)
+int	check_line(char *gone, int j)
 {
-	int count;
-	int i;
+	int	count;
+	int	i;
 
 	i = 0;
 	count = 0;
@@ -42,10 +42,10 @@ int		check_line(char *gone, int j)
 
 int		check_valide(char *gone, int j)
 {
-	int ht;
-	int point;
-	int nl;
-	int i;
+	int	ht;
+	int	point;
+	int	nl;
+	int	i;
 
 	ht = 0;
 	point = 0;
@@ -68,14 +68,14 @@ int		check_valide(char *gone, int j)
 
 int		check_tetri(char *gone)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
 	while (gone[i + j])
 	{
-		if(!(check_line(gone, j) && check_valide(gone, j)))
+		if (!(check_line(gone, j) && check_valide(gone, j)))
 			return (0);
 		i = 19;
 		if (gone[i + j] == '\n' && gone[i + j + 1] == '\0')
@@ -90,17 +90,17 @@ int		check_tetri(char *gone)
 	return (1);
 }
 
-int		check_tetri_map(char **map, t_tetri *tetri, int size)
+int	check_tetri_map(char **map, t_tetri *tetri, int size)
 {
-	int i;
-	int x;
-	int y;
+	int	i;
+	int	x;
+	int	y;
 
 	i = 0;
 	y = 0;
 	while (y < size)
 	{
-		x =0;
+		x = 0;
 		while (x < size)
 		{
 			if (tetri->y[i] < size && tetri->x[i] < size
