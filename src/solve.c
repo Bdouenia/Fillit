@@ -6,7 +6,7 @@
 /*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 23:47:32 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/12/06 14:08:00 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/12/06 15:57:24 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	mv_tetri(t_tetri **tetri, int x, int y)
 		i++;
 	}
 	i--;
-	while(i >= 0)
+	while (i >= 0)
 	{
 		(*tetri)->x[i] = (*tetri)->x[i] - new_x + x;
 		(*tetri)->y[i] = (*tetri)->y[i] - new_y + y;
