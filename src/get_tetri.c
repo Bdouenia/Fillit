@@ -6,16 +6,16 @@
 /*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:50:40 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/12/06 14:02:43 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/12/06 16:16:26 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 #include <stdio.h>
 
-int			count_tetri(char *str)
+int				count_tetri(char *str)
 {
-	int		result;
+	int			result;
 
 	result = 0;
 	while (*str)
@@ -26,10 +26,11 @@ int			count_tetri(char *str)
 	}
 	return (result / 4);
 }
-void	creat_tetri(t_tetri **tmp, char *str)
+
+void			creat_tetri(t_tetri **tmp, char *str)
 {
-	int i;
-	int j;
+	int			i;
+	int			j;
 
 	i = 0;
 	j = 0;
@@ -45,7 +46,7 @@ void	creat_tetri(t_tetri **tmp, char *str)
 	}
 }
 
-t_tetri		*get_tetri(char *str)
+t_tetri			*get_tetri(char *str)
 {
 	int			nb_tetri;
 	t_tetri		*locomotive;
@@ -74,12 +75,12 @@ t_tetri		*get_tetri(char *str)
 	return (locomotive);
 }
 
-char	*get_str(int fd)
+char			*get_str(int fd)
 {
-	int		f;
-	int		i;
-	char	c;
-	char	*str;
+	int			f;
+	int			i;
+	char		c;
+	char		*str;
 
 	i = 0;
 	str = NULL;

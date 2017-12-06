@@ -6,7 +6,7 @@
 /*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 23:47:32 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/12/06 15:57:24 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/12/06 16:11:15 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**algo(char **map, t_tetri *tetri, int size)
 				pam = algo(add_tetri(map, tetri, size), tetri->next, size);
 			if (pam)
 				return (pam);
-			map = rm_tetri(map, tetri, size); 
+			map = rm_tetri(map, tetri, size);
 			x++;
 		}
 		y++;
