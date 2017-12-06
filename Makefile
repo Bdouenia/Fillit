@@ -6,7 +6,7 @@
 #    By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/22 15:29:41 by dvalenti          #+#    #+#              #
-#    Updated: 2017/11/28 22:26:55 by dvalenti         ###   ########.fr        #
+#    Updated: 2017/12/05 01:28:01 by dvalenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC_FILE=	check_tetri.c \
 			map.c \
 			solve.c \
 			algo.c \
+			check_tetri_xy.c\
 
 SRC= $(addprefix src/,$(SRC_FILE))
 

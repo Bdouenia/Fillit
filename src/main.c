@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:28:37 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/29 04:56:22 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/12/05 02:11:52 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int		main(int ac, char **av)
 	a = 0;
 	free(transtet);
 	ft_solve(tetri);
-	printf("NOOON\n");
 	free(tetri);
 	return (0);
 }

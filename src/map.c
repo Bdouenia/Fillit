@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 23:59:02 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/29 02:31:41 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/12/04 22:53:10 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,17 @@ char	**creat_map(char **map, size_t size)
 	}
 	return (map);
 }
-void	print_map(char **map)
+void	print_map(char **map, size_t size)
 {
-	int i;
+	unsigned long int i;
 
 	if (map == NULL)
 		return (ft_putstr("error"));
 	i = 0;
-	while (map[i] != 0)
+	while (i < size)
 	{
-		ft_putendl(map[i]);
+		ft_putstr(map[i]);
+		ft_putchar('\n');
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 16:21:15 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/29 04:57:02 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/12/06 07:39:51 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ char				*get_str(int fd);
 int					check_line(char *gone, int j);
 int					check_valide(char *gone, int j);
 int					check_tetri(char *gone);
+void				check_tetri_xy(t_tetri *tetri, t_tetri *locomotive, int count, char **map);
+void				check_tetri_yx(t_tetri *tetri, char **map);
 char				**creat_map(char **map, size_t size);
-void				print_map(char **map);
+void				print_map(char **map, size_t size);
 void				ft_solve(t_tetri *tetri);
+
 
 #endif
