@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 02:45:10 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 18:26:54 by bdouenia         ###   ########.fr       */
+/*   Created: 2017/11/24 05:44:53 by dvalenti          #+#    #+#             */
+/*   Updated: 2017/11/28 21:38:45 by dvalenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_putstr(char const *s)
+int		ft_max(int *un)
 {
-	int i;
+	int		max;
 
-	i = 0;
-	while (s[i])
+	max = *un;
+	while (*un)
 	{
-		ft_putchar(s[i]);
-		i++;
+		if (max < *un)
+			max = *un;
+		un++;
 	}
+	return (max);
 }

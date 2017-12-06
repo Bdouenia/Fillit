@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checkvalide.c                                   :+:      :+:    :+:   */
+/*   check_tetri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 23:54:43 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 19:31:17 by bdouenia         ###   ########.fr       */
+/*   Updated: 2017/12/06 14:12:09 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
 #include "../includes/fillit.h"
 #include <stdio.h>
 
@@ -25,23 +24,19 @@ int		check_line(char *gone, int j)
 	{
 		if (gone[i + j] == '#')
 		{
-			if (gone[i + j + 1] == '#')
+			if ((i + j + 1) < (20 + j) && gone[i + j + 1] == '#')
 				count++;
-			if (gone[i + j - 1] == '#')
+			if ((i + j - 1) >= (0 + j) && gone[i + j - 1] == '#')
 				count++;
-			if (gone[i + j + 5] == '#')
+			if ((i + j + 5) < (20 + j) && gone[i + j + 5] == '#')
 				count++;
-			if (gone[i + j - 5] == '#')
+			if ((i + j - 5) >= (0 + j) && gone[i + j - 5] == '#')
 				count++;
 		}
 		i++;
 	}
 	if (count == 6 || count == 8)
-	{
-		printf("ok1\n");
 		return (1);
-	}
-	printf("nope1\n");
 	return (0);
 }
 
@@ -66,15 +61,8 @@ int		check_valide(char *gone, int j)
 			ht++;
 		i++;
 	}
-	printf("point: %d\n", point);
-	printf("ht: %d\n", ht);
-	printf("nl: %d\n", nl);
 	if (ht == 4 && point == 12 && nl == 4)
-	{
-		printf("ok2\n");
 		return (1);
-	}
-	printf("nope2\n");
 	return (0);
 }
 
@@ -89,23 +77,42 @@ int		check_tetri(char *gone)
 	{
 		if(!(check_line(gone, j) && check_valide(gone, j)))
 			return (0);
-		printf("ok after check\n");
 		i = 19;
 		if (gone[i + j] == '\n' && gone[i + j + 1] == '\0')
-		{
-		printf("1check\n");
 			return (1);
-		}
 		if (gone[i + j] == '\n' && gone[i + j + 1] == '\n'
-		&& (gone[i + j + 2] == '.' || gone[i + j + 2] == '#'))
-		{
-		printf("2check\n");
+				&& (gone[i + j + 2] == '.' || gone[i + j + 2] == '#'))
 			j += 21;
-		}
 		else
 			return (0);
 		i = 0;
-		printf("fin check\n");
 	}
 	return (1);
+}
+
+int		check_tetri_map(char **map, t_tetri *tetri, int size)
+{
+	int i;
+	int x;
+	int y;
+
+	i = 0;
+	y = 0;
+	while (y < size)
+	{
+		x =0;
+		while (x < size)
+		{
+			if (tetri->y[i] < size && tetri->x[i] < size
+			&& map[tetri->y[i]][tetri->x[i]] == '.')
+			{
+				i++;
+				if (i == 4)
+				return (1);
+			}
+			x++;
+		}
+		y++;
+	}
+	return (0);
 }

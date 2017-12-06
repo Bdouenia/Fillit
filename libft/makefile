@@ -6,7 +6,7 @@
 #    By: dvalenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/22 15:29:41 by dvalenti          #+#    #+#              #
-#    Updated: 2017/11/22 20:45:18 by dvalenti         ###   ########.fr        #
+#    Updated: 2017/11/24 05:49:26 by dvalenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC_FILE=	ft_atoi.c\
 			ft_lstiter.c\
 			ft_lstnew.c\
 			ft_lstmap.c\
+			ft_max.c\
 			ft_memccpy.c\
 			ft_memchr.c\
 			ft_memcmp.c\

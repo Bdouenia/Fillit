@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_tetri.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdouenia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bdouenia <bdouenia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:50:40 by bdouenia          #+#    #+#             */
-/*   Updated: 2017/11/22 21:00:24 by dvalenti         ###   ########.fr       */
+/*   Updated: 2017/12/06 14:02:43 by bdouenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
 #include "../includes/fillit.h"
 #include <stdio.h>
 
@@ -36,10 +35,8 @@ void	creat_tetri(t_tetri **tmp, char *str)
 	j = 0;
 	while (str[i])
 	{
-		printf("%d\n", i);
 		if (str[i] == '#')
 		{
-			printf("%d\n", j);
 			(*tmp)->x[j] = i % 5;
 			(*tmp)->y[j] = i / 5;
 			j++;
@@ -56,26 +53,49 @@ t_tetri		*get_tetri(char *str)
 	int			add21;
 	char		c;
 
-	c = 'a';
 	add21 = 0;
+	c = 'A';
 	nb_tetri = count_tetri(str);
-	printf("%d\n", nb_tetri);
 	if (!(locomotive = (t_tetri *)malloc(sizeof(t_tetri))))
-		return (locomotive);
+		return (NULL);
 	tmp = locomotive;
-	printf("malloc locomotive\n");
 	while (nb_tetri > 0)
 	{
-		printf("ok\n");
 		tmp->c = c;
-		creat_tetri(&tmp, ft_strsub(str, add21, 20));
-		printf("ok\n");
+		creat_tetri(&tmp, ft_strsub(str, 0 + add21, 20));
 		if (!(tmp->next = (t_tetri *)malloc(sizeof(t_tetri))))
-			return (tmp);
+			return (NULL);
 		tmp = tmp->next;
 		nb_tetri--;
 		add21 += 21;
+		c++;
 	}
 	tmp->next = NULL;
 	return (locomotive);
+}
+
+char	*get_str(int fd)
+{
+	int		f;
+	int		i;
+	char	c;
+	char	*str;
+
+	i = 0;
+	str = NULL;
+	f = read(fd, &c, 1);
+	if (f < 0)
+		return (NULL);
+	if (f == 1)
+	{
+		str = (char *)malloc(sizeof(char) * 600);
+		while (f != '\0')
+		{
+			str[i] = c;
+			i++;
+			f = read(fd, &c, 1);
+		}
+		str[i] = '\0';
+	}
+	return (str);
 }
